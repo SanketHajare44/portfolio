@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-server",
+  "version": "1.0.0",
+  "description": "Backend API for Sanket Hajare's portfolio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "api",
+    "express",
+    "mongodb"
+  ],
+  "author": "Sanket Hajare",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
