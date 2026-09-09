@@ -3,6 +3,49 @@ import { Link, useParams } from "react-router-dom";
 
 import projects from "../content/projects";
 
+/*
+ * ============================================================
+ * FORMATTED TEXT
+ * Supports:
+ *
+ * **important text**
+ *
+ * Example:
+ * "Built **real-time chat** using **Socket.IO**."
+ *
+ * Only text wrapped with ** ** is rendered in bold.
+ * ============================================================
+ */
+
+const FormattedText = ({ text }) => {
+    if (!text) return null;
+
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+
+    return (
+        <>
+            {parts.map((part, index) => {
+                if (
+                    part.startsWith("**") &&
+                    part.endsWith("**") &&
+                    part.length > 4
+                ) {
+                    return (
+                        <strong
+                            key={index}
+                            className="font-semibold text-zinc-800 dark:text-zinc-200"
+                        >
+                            {part.slice(2, -2)}
+                        </strong>
+                    );
+                }
+
+                return <span key={index}>{part}</span>;
+            })}
+        </>
+    );
+};
+
 
 const ProjectDetails = () => {
 
@@ -166,8 +209,12 @@ const ProjectDetails = () => {
 
                     <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-600 sm:mt-7 sm:text-lg sm:leading-8 dark:text-zinc-400 lg:text-xl lg:leading-9">
 
-                        {caseStudy?.intro ||
-                            project.description?.[0]}
+                        <FormattedText
+                            text={
+                                caseStudy?.intro ||
+                                project.description?.[0]
+                            }
+                        />
 
                     </p>
 
@@ -285,7 +332,7 @@ const ProjectDetails = () => {
                                             key={index}
                                             className="mb-7 text-base leading-8 text-zinc-600 sm:text-lg sm:leading-9 dark:text-zinc-400"
                                         >
-                                            {paragraph}
+                                            <FormattedText text={paragraph} />
                                         </p>
 
                                     )
@@ -300,7 +347,7 @@ const ProjectDetails = () => {
                                             key={index}
                                             className="mb-7 text-base leading-8 text-zinc-600 sm:text-lg sm:leading-9 dark:text-zinc-400"
                                         >
-                                            {paragraph}
+                                            <FormattedText text={paragraph} />
                                         </p>
 
                                     )
@@ -346,7 +393,9 @@ const ProjectDetails = () => {
                                             <span className="mt-3 h-px w-3 shrink-0 bg-zinc-400 dark:bg-zinc-600" />
 
                                             <span>
-                                                {highlight}
+                                                <FormattedText
+                                                    text={highlight}
+                                                />
                                             </span>
 
                                         </li>
