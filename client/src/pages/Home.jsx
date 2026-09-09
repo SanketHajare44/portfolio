@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
 import projects from "../content/projects";
+import FormattedText from "../components/ui/FormattedText";
 
 const sectionLabel =
     "font-mono text-xs uppercase tracking-[0.2em] text-orange-500";
@@ -720,8 +721,11 @@ const Home = () => {
                                                     dark:text-zinc-500
                                                 "
                                             >
-                                                {project.shortDescription ||
-                                                    project.description?.[0]}
+                                                <FormattedText
+                                                    text={project.shortDescription || project.description?.[0]}
+
+
+                                                />
                                             </p>
 
                                             <span
