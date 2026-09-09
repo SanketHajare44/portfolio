@@ -14,12 +14,14 @@ const projects = [
         visible: true,
 
         shortDescription:
-            "Developer networking platform with authentication, connection management, and real-time one-to-one chat.",
+            "Developer networking platform with **authentication**, **connection management**, and **real-time one-to-one chat**.",
 
         description: [
-            "Full-stack developer networking platform for discovering developers and building professional connections.",
-            "Implemented JWT authentication, profile management, connection requests, and protected user interactions.",
-            "Built authenticated real-time one-to-one messaging using Socket.IO with persistent chat history.",
+            "Developed a **developer networking platform** with a complete **connection lifecycle**, including developer discovery, connection requests, acceptance/rejection, and private communication.",
+
+            "Implemented **JWT-based authentication** with **bcrypt password hashing** and **HTTP-only cookies**, using reusable middleware to protect profile, feed, connection, and chat APIs.",
+
+            "Built **real-time one-to-one messaging** with **Socket.IO** using authenticated socket connections, **deterministic private chat rooms**, and **MongoDB persistence** for message history.",
         ],
 
         technologies: [
@@ -39,27 +41,27 @@ const projects = [
 
         caseStudy: {
             intro:
-                "A full-stack developer networking platform designed to help developers discover, connect, and communicate with other developers.",
+                "A **full-stack developer networking platform** designed to help developers discover, connect, and communicate with other developers.",
 
             story: [
-                "PullRequest is a full-stack developer networking platform that allows developers to create profiles, discover other developers, send connection requests, and build professional connections.",
+                "PullRequest is a **full-stack developer networking platform** that allows developers to create profiles, discover other developers, send connection requests, and build professional connections.",
 
-                "The application uses a REST-based backend for authentication, profile management, developer discovery, and connection workflows. JWT authentication with HTTP-only cookies protects private APIs and user interactions.",
+                "The application uses a **REST-based backend** for authentication, profile management, developer discovery, and connection workflows. **JWT authentication** with **HTTP-only cookies** protects private APIs and user interactions.",
 
-                "Real-time one-to-one communication was implemented using Socket.IO with authenticated socket connections and deterministic private chat rooms. Messages are persisted in MongoDB while Socket.IO handles live message delivery.",
+                "Real-time one-to-one communication was implemented using **Socket.IO** with **authenticated socket connections** and **deterministic private chat rooms**. Messages are persisted in **MongoDB** while Socket.IO handles live message delivery.",
 
-                "The system separates request-response operations from real-time communication, using REST APIs for application data and chat history while Socket.IO handles live messaging events.",
+                "The system separates **request-response operations** from **real-time communication**, using REST APIs for application data and chat history while Socket.IO handles live messaging events.",
             ],
 
             highlights: [
                 "Developer profile creation and management",
-                "JWT authentication with HTTP-only cookies",
-                "Protected REST APIs using reusable authentication middleware",
-                "Developer discovery with relationship-aware filtering",
+                "**JWT authentication** with **HTTP-only cookies**",
+                "Protected REST APIs using reusable **authentication middleware**",
+                "Developer discovery with **relationship-aware filtering**",
                 "Connection request, acceptance, and rejection workflow",
-                "Real-time authenticated one-to-one chat using Socket.IO",
-                "Deterministic private chat rooms for user pairs",
-                "MongoDB persistence for users, connections, and chat history",
+                "Real-time authenticated **one-to-one chat** using **Socket.IO**",
+                "**Deterministic private chat rooms** for user pairs",
+                "**MongoDB persistence** for users, connections, and chat history",
             ],
 
             builtWith: [
