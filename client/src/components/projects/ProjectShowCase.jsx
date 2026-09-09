@@ -2,6 +2,42 @@ import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import ParallaxImage from "../ui/ParallaxImage";
 
+/*
+ * Renders text with support for:
+ * **important text**
+ *
+ * Example:
+ * "Built **real-time chat** using **Socket.IO**."
+ *
+ * Only the text between ** ** will be rendered in bold.
+ */
+const FormattedText = ({ text }) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+
+    return (
+        <>
+            {parts.map((part, index) => {
+                if (
+                    part.startsWith("**") &&
+                    part.endsWith("**") &&
+                    part.length > 4
+                ) {
+                    return (
+                        <strong
+                            key={index}
+                            className="font-semibold text-zinc-800 dark:text-zinc-200"
+                        >
+                            {part.slice(2, -2)}
+                        </strong>
+                    );
+                }
+
+                return <span key={index}>{part}</span>;
+            })}
+        </>
+    );
+};
+
 const ProjectShowcase = ({ project, index }) => {
     const isReversed = index % 2 !== 0;
 
@@ -220,7 +256,7 @@ const ProjectShowcase = ({ project, index }) => {
                                     />
 
                                     <span>
-                                        {point}
+                                        <FormattedText text={point} />
                                     </span>
 
                                 </li>
