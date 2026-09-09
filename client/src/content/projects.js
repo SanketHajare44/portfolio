@@ -4,9 +4,9 @@ const projects = [
     // =========================================================
 
     {
-        id: "devtinder",
-        title: "DevTinder",
-        slug: "devtinder",
+        id: "pullrequest",
+        title: "PullRequest",
+        slug: "pullrequest",
         category: "MERN",
         year: 2026,
         order: 1,
@@ -14,54 +14,62 @@ const projects = [
         visible: true,
 
         shortDescription:
-            "Developer networking platform with authentication, connections, and real-time one-to-one chat.",
+            "Developer networking platform with authentication, connection management, and real-time one-to-one chat.",
 
         description: [
-            "Full-stack developer networking platform for discovering and connecting with developers.",
-            "Implemented user authentication, profile management, connection requests, and developer matching.",
-            "Built real-time one-to-one chat functionality using Socket.IO.",
+            "Full-stack developer networking platform for discovering developers and building professional connections.",
+            "Implemented JWT authentication, profile management, connection requests, and protected user interactions.",
+            "Built authenticated real-time one-to-one messaging using Socket.IO with persistent chat history.",
         ],
 
         technologies: [
             "React",
+            "Redux Toolkit",
             "Node.js",
             "Express.js",
             "MongoDB",
             "Socket.IO",
+            "JWT",
             "REST API",
         ],
 
-        githubUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
-        liveUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
-        imageUrl: "/projects/devtinder.png",
+        githubUrl: "https://github.com/SanketHajare44/pullRequest",
+        liveUrl: "https://pullrequest-roan.vercel.app/",
+        imageUrl: "/projects/pullrequest.png",
 
         caseStudy: {
             intro:
                 "A full-stack developer networking platform designed to help developers discover, connect, and communicate with other developers.",
 
             story: [
-                "DevTinder is a full-stack developer networking platform that allows developers to create profiles, discover other developers, and build professional connections.",
+                "PullRequest is a full-stack developer networking platform that allows developers to create profiles, discover other developers, send connection requests, and build professional connections.",
 
-                "The application provides user authentication, profile management, developer discovery, and connection functionality through a REST-based backend.",
+                "The application uses a REST-based backend for authentication, profile management, developer discovery, and connection workflows. JWT authentication with HTTP-only cookies protects private APIs and user interactions.",
 
-                "Real-time one-to-one communication was implemented using Socket.IO, allowing connected developers to exchange messages without continuously polling the server.",
+                "Real-time one-to-one communication was implemented using Socket.IO with authenticated socket connections and deterministic private chat rooms. Messages are persisted in MongoDB while Socket.IO handles live message delivery.",
+
+                "The system separates request-response operations from real-time communication, using REST APIs for application data and chat history while Socket.IO handles live messaging events.",
             ],
 
             highlights: [
                 "Developer profile creation and management",
-                "User authentication and protected APIs",
-                "Developer discovery and connection requests",
-                "Real-time one-to-one chat using Socket.IO",
-                "RESTful backend architecture",
-                "MongoDB-based data persistence",
+                "JWT authentication with HTTP-only cookies",
+                "Protected REST APIs using reusable authentication middleware",
+                "Developer discovery with relationship-aware filtering",
+                "Connection request, acceptance, and rejection workflow",
+                "Real-time authenticated one-to-one chat using Socket.IO",
+                "Deterministic private chat rooms for user pairs",
+                "MongoDB persistence for users, connections, and chat history",
             ],
 
             builtWith: [
                 "React",
+                "Redux Toolkit",
                 "Node.js",
                 "Express.js",
                 "MongoDB",
                 "Socket.IO",
+                "JWT",
                 "REST API",
             ],
         },
