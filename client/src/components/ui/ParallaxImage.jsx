@@ -50,7 +50,7 @@ const ParallaxImage = ({
                 ref={imageRef}
                 src={src}
                 alt={alt}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
             />
         </div>
     );

@@ -635,7 +635,7 @@ const Home = () => {
                                                 className="
                                                     aspect-[16/10]
                                                     w-full
-                                                    object-cover
+                                                    object-contain
                                                     transition-transform
                                                     duration-500
                                                     group-hover:scale-[1.02]

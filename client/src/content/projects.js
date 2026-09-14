@@ -150,7 +150,7 @@ const projects = [
 
     {
         id: "custom-virtual-file-system",
-        title: "Custom Virtual File System",
+        title: "Custom Virtual File System (CVFS)",
         slug: "custom-virtual-file-system",
         category: "C/C++",
         year: 2025,
@@ -177,8 +177,8 @@ const projects = [
         ],
 
         githubUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
-        liveUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
-        imageUrl: "/projects/devtinder.png",
+        // liveUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
+        imageUrl: "/projects/CV.png",
 
         caseStudy: {
             intro:
