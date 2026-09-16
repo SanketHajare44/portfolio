@@ -277,22 +277,18 @@ const ProjectDetails = () => {
                     HERO IMAGE
                 ====================================================== */}
 
+
+
                 {project.imageUrl && (
-
                     <section className="mt-12 sm:mt-16 lg:mt-20">
-
-                        <div className="group overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-white/10 dark:bg-zinc-950">
-
+                        <div className="group overflow-hidden rounded-xl border-3 border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-950">
                             <img
                                 src={project.imageUrl}
                                 alt={`${project.title} project screenshot`}
                                 className="block aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.015]"
                             />
-
                         </div>
-
                     </section>
-
                 )}
 
 

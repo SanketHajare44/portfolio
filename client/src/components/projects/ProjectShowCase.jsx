@@ -70,15 +70,15 @@ const ProjectShowcase = ({ project, index }) => {
                     <Link
                         to={`/projects/${project.slug}`}
                         className="
-                            block
-                            overflow-hidden
-                            rounded-xl
-                            border
-                            border-zinc-200
-                            bg-zinc-100
-                            dark:border-white/10
-                            dark:bg-zinc-950
-                        "
+                        block
+                        overflow-hidden
+                        rounded-xl
+                        border
+                        border-orange-200
+                        bg-zinc-100
+                        dark:border-white/30
+                        dark:bg-zinc-950
+                    "
                     >
 
                         {project.imageUrl ? (
@@ -89,6 +89,7 @@ const ProjectShowcase = ({ project, index }) => {
                                 className="
                                     aspect-[16/10]
                                     w-full
+                                    object-contain
                                     transition-transform
                                     duration-500
                                     group-hover:scale-[1.02]

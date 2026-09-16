@@ -84,7 +84,7 @@ const projects = [
 
     {
         id: "edutrack",
-        title: "EduTrack",
+        title: "Packer Unpacker",
         slug: "edutrack",
         category: "Java",
         year: 2026,
@@ -111,7 +111,7 @@ const projects = [
 
         githubUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
         liveUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
-        imageUrl: "/projects/devtinder.png",
+        imageUrl: "/projects/FilePacker.png",
 
         caseStudy: {
             intro:
@@ -178,7 +178,7 @@ const projects = [
 
         githubUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
         // liveUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
-        imageUrl: "/projects/CV.png",
+        imageUrl: "/projects/CVFS.svg",
 
         caseStudy: {
             intro:

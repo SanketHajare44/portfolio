@@ -622,9 +622,9 @@ const Home = () => {
                                                 overflow-hidden
                                                 rounded-xl
                                                 border
-                                                border-zinc-200
+                                                border-orange-200
                                                 bg-zinc-100
-                                                dark:border-white/10
+                                                dark:border-white/20
                                                 dark:bg-zinc-950
                                             "
                                         >
