@@ -2,6 +2,8 @@ import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import ParallaxImage from "../ui/ParallaxImage";
 
+import { FaGithub } from "react-icons/fa";
+
 /*
  * Renders text with support for:
  * **important text**
@@ -25,7 +27,7 @@ const FormattedText = ({ text }) => {
                     return (
                         <strong
                             key={index}
-                            className="font-semibold text-zinc-800 dark:text-zinc-200"
+                            className="font-normal text-black dark:text-white"
                         >
                             {part.slice(2, -2)}
                         </strong>
@@ -360,15 +362,24 @@ const ProjectShowcase = ({ project, index }) => {
                                 target="_blank"
                                 rel="noreferrer"
                                 className="
-                                    text-sm
-                                    text-zinc-500
-                                    transition-colors
-                                    hover:text-orange-500
-                                    dark:text-zinc-400
-                                    dark:hover:text-orange-400
+                                    group/link
+                                            inline-flex
+                                            items-center
+                                            gap-1.5
+                                            font-mono
+                                            text-[10px]
+                                            text-zinc-900
+                                            transition-colors
+                                            hover:text-orange-500
+                                            dark:text-white
+                                            dark:hover:text-orange-400
                                 "
                             >
-                                GitHub ↗
+                                <FaGithub size={15} />
+
+                                GitHub
+
+                                <ExternalLink size={14} />
                             </a>
 
                         )}
@@ -383,16 +394,16 @@ const ProjectShowcase = ({ project, index }) => {
                                 target="_blank"
                                 rel="noreferrer"
                                 className="
-                                    inline-flex
-                                    items-center
-                                    gap-1.5
-                                    text-sm
-                                    text-zinc-500
-                                    transition-colors
-                                    hover:text-orange-500
-                                    dark:text-zinc-400
-                                    dark:hover:text-orange-400
-                                "
+                                inline-flex
+                                items-center
+                                gap-1.5
+                                text-sm
+                                text-orange-500
+                                transition-colors
+                                hover:text-zinc-400
+                                dark:text-orange-500
+                                dark:hover:text-zinc-400
+                            "
                             >
 
                                 Live

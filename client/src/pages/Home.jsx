@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 
 import projects from "../content/projects";
 import FormattedText from "../components/ui/FormattedText";
+import { ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 const sectionLabel =
     "font-mono text-xs uppercase tracking-[0.2em] text-orange-500";
@@ -841,30 +843,24 @@ const Home = () => {
                                                         }
                                                         aria-label={`${project.title} GitHub repository`}
                                                         className="
-                                                            group/link
-                                                            inline-flex
-                                                            items-center
-                                                            gap-1.5
-                                                            font-mono
-                                                            text-[10px]
-                                                            text-zinc-500
-                                                            transition-colors
-                                                            hover:text-orange-500
-                                                            dark:text-zinc-500
-                                                            dark:hover:text-orange-400
-                                                        "
+                                                        group/link
+                                                        inline-flex
+                                                        items-center
+                                                        gap-1.5
+                                                        font-mono
+                                                        text-[10px]
+                                                        text-zinc-900
+                                                        transition-colors
+                                                        hover:text-orange-500
+                                                        dark:text-white
+                                                        dark:hover:text-orange-400
+                                                    "
                                                     >
+                                                        <FaGithub size={15} />
+
                                                         GitHub
 
-                                                        <ArrowUpRight
-                                                            size={13}
-                                                            className="
-                                                                transition-transform
-                                                                duration-200
-                                                                group-hover/link:-translate-y-0.5
-                                                                group-hover/link:translate-x-0.5
-                                                            "
-                                                        />
+                                                        <ExternalLink size={14} />
 
                                                     </a>
 
@@ -897,15 +893,8 @@ const Home = () => {
                                                     >
                                                         Live
 
-                                                        <ArrowUpRight
-                                                            size={13}
-                                                            className="
-                                                                transition-transform
-                                                                duration-200
-                                                                group-hover/link:-translate-y-0.5
-                                                                group-hover/link:translate-x-0.5
-                                                            "
-                                                        />
+
+                                                        <ExternalLink size={14} />
 
                                                     </a>
 
