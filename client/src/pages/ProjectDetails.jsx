@@ -408,33 +408,39 @@ const ProjectDetails = () => {
 
 
                 {/* =====================================================
-
                     HERO IMAGE
-
                 ====================================================== */}
 
-
-
                 {project.imageUrl && (
-
                     <section className="mt-12 sm:mt-16 lg:mt-20">
+                        <div className="group overflow-hidden rounded-2xl border border-zinc-200/80 bg-gradient-to-br from-orange-50 via-white to-zinc-100 p-2 shadow-[0_14px_42px_-24px_rgba(24,24,27,0.42)] sm:p-3 dark:border-white/10 dark:from-zinc-900 dark:via-zinc-950 dark:to-black">
+                            <div className="overflow-hidden rounded-xl border border-zinc-200/80 bg-white dark:border-white/10 dark:bg-zinc-950">
+                                <div className="flex h-9 items-center justify-between border-b border-zinc-200/80 bg-white/90 px-3 sm:px-4 dark:border-white/10 dark:bg-zinc-900/90">
+                                    <div className="flex items-center gap-1.5" aria-hidden="true">
+                                        <span className="h-2 w-2 rounded-full bg-orange-400" />
+                                        <span className="h-2 w-2 rounded-full bg-amber-300" />
+                                        <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                                    </div>
+                                    <span className="ml-3 truncate font-mono text-[9px] uppercase tracking-[0.16em] text-zinc-400 sm:text-[10px]">
+                                        {project.title} · project preview
+                                    </span>
+                                    <span className="ml-3 shrink-0 font-mono text-[9px] text-orange-500">
+                                        {project.category}
+                                    </span>
+                                </div>
 
-                        <div className="group overflow-hidden rounded-xl border-3 border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-950">
-
-                            <img
-
-                                src={project.imageUrl}
-
-                                alt={`${project.title} project screenshot`}
-
-                                className="block aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.015]"
-
-                            />
-
+                                <div className="flex min-h-[220px] items-center justify-center overflow-hidden bg-zinc-100/70 p-2 sm:min-h-[320px] sm:p-4 lg:min-h-[440px] dark:bg-black/50">
+                                    <img
+                                        src={project.imageUrl}
+                                        alt={`${project.title} project screenshot`}
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="block max-h-[72vh] w-full object-contain transition-transform duration-700 group-hover:scale-[1.01]"
+                                    />
+                                </div>
+                            </div>
                         </div>
-
                     </section>
-
                 )}
 
 
