@@ -1,6 +1,5 @@
 import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
-import ParallaxImage from "../ui/ParallaxImage";
 
 import { FaGithub } from "react-icons/fa";
 
@@ -68,84 +67,50 @@ const ProjectShowcase = ({ project, index }) => {
                 ====================================================== */}
 
                 <div className="relative">
-
                     <Link
                         to={`/projects/${project.slug}`}
-                        className="
-                        block
-                        overflow-hidden
-                        rounded-xl
-                        border
-                        border-orange-200
-                        bg-zinc-100
-                        dark:border-white/30
-                        dark:bg-zinc-950
-                    "
+                        className="group/preview block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-4 dark:focus-visible:ring-offset-black"
                     >
-
-                        {project.imageUrl ? (
-
-                            <ParallaxImage
-                                src={project.imageUrl}
-                                alt={`${project.title} project preview`}
-                                className="
-                                    aspect-[16/10]
-                                    w-full
-                                    object-contain
-                                    transition-transform
-                                    duration-500
-                                    group-hover:scale-[1.02]
-                                "
-                            />
-
-                        ) : (
-
-                            <div
-                                className="
-                                    flex
-                                    aspect-[16/10]
-                                    items-center
-                                    justify-center
-                                    bg-gradient-to-br
-                                    from-zinc-100
-                                    to-zinc-200
-                                    dark:from-zinc-900
-                                    dark:to-zinc-950
-                                "
-                            >
-
-                                <div className="text-center">
-
-                                    <p
-                                        className="
-                                            text-xs
-                                            uppercase
-                                            tracking-[0.25em]
-                                            text-zinc-500
-                                            dark:text-zinc-600
-                                        "
-                                    >
-                                        Project Preview
-                                    </p>
-
-                                    <p
-                                        className="
-                                            mt-3
-                                            text-xl
-                                            font-medium
-                                            text-zinc-700
-                                            dark:text-zinc-400
-                                        "
-                                    >
-                                        {project.title}
-                                    </p>
-
+                        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-zinc-200/80 bg-gradient-to-br from-orange-50 via-white to-zinc-100 p-2 shadow-[0_14px_42px_-24px_rgba(24,24,27,0.42)] transition-all duration-500 group-hover/preview:-translate-y-1 group-hover/preview:border-orange-300 group-hover/preview:shadow-[0_24px_50px_-24px_rgba(249,115,22,0.36)] sm:p-3 dark:border-white/10 dark:from-zinc-900 dark:via-zinc-950 dark:to-black dark:group-hover/preview:border-orange-500/40">
+                            <div className="flex h-full flex-col overflow-hidden rounded-xl border border-zinc-200/80 bg-white dark:border-white/10 dark:bg-zinc-950">
+                                <div className="flex h-8 shrink-0 items-center justify-between border-b border-zinc-200/80 bg-white/90 px-3 dark:border-white/10 dark:bg-zinc-900/90">
+                                    <div className="flex items-center gap-1.5" aria-hidden="true">
+                                        <span className="h-2 w-2 rounded-full bg-orange-400" />
+                                        <span className="h-2 w-2 rounded-full bg-amber-300" />
+                                        <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                                    </div>
+                                    <span className="ml-3 truncate font-mono text-[9px] uppercase tracking-[0.16em] text-zinc-400">
+                                        {project.title} · preview
+                                    </span>
+                                    <span className="ml-3 shrink-0 font-mono text-[9px] text-orange-500">
+                                        OPEN ↗
+                                    </span>
                                 </div>
 
+                                {project.imageUrl ? (
+                                    <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-zinc-100/70 dark:bg-black/50">
+                                        <img
+                                            src={project.imageUrl}
+                                            alt={`${project.title} project preview`}
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="h-full w-full object-contain transition-transform duration-700 group-hover/preview:scale-[1.025]"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="flex min-h-0 flex-1 items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-900 dark:to-zinc-950">
+                                        <div className="px-4 text-center">
+                                            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500 dark:text-zinc-600">
+                                                Project Preview
+                                            </p>
+                                            <p className="mt-3 text-xl font-medium text-zinc-700 dark:text-zinc-300">
+                                                {project.title}
+                                            </p>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-
-                        )}
-
+                        </div>
                     </Link>
 
                 </div>
