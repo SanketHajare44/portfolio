@@ -299,7 +299,6 @@ const projects = [
       "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
     // liveUrl: "https://github.com/SanketHajare44/Kernel-Interface-Utility-Suite",
     imageUrl: "/projects/CVFS.svg",
-
     caseStudy: {
       intro:
         "A systems programming project that explores Linux file-system concepts through a custom virtual file system implemented using C/C++.",
