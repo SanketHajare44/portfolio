@@ -35,17 +35,18 @@ const About = () => {
 
             <div>
               {/* Profile Image */}
-
               <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-white/10 dark:bg-zinc-950">
                 <img
                   src="/Sanket_img4.png"
                   alt="Sanket Hajare"
+                  width="600"
+                  height="750"
+                  fetchPriority="high"
+                  decoding="async"
                   className="aspect-[4/5] w-full object-cover"
                 />
               </div>
-
               {/* Profile Information */}
-
               <div className="mt-7 divide-y divide-zinc-200 border-y border-zinc-200 dark:divide-white/10 dark:border-white/10">
                 {/* BASED IN */}
 
