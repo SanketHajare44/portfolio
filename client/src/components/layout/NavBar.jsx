@@ -1,112 +1,93 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import {
-    ArrowUpRight,
-    Menu,
-    Moon,
-    Search,
-    Sun,
-    X,
-} from "lucide-react";
+import { ArrowUpRight, Menu, Moon, Search, Sun, X } from "lucide-react";
 
 import CommandPalette from "../ui/CommandPalette";
 import { useTheme } from "../../context/ThemeContext";
-
 
 // ============================================================
 // NAVIGATION ITEMS
 // ============================================================
 
 const navigationItems = [
-    {
-        number: "01",
-        label: "Projects",
-        path: "/projects",
-    },
-    {
-        number: "02",
-        label: "Work",
-        path: "/work",
-    },
-    {
-        number: "03",
-        label: "About",
-        path: "/about",
-    },
-    {
-        number: "04",
-        label: "Resume",
-        path: "/resume",
-    },
+  {
+    number: "01",
+    label: "Projects",
+    path: "/projects",
+  },
+  {
+    number: "02",
+    label: "Work",
+    path: "/work",
+  },
+  {
+    number: "03",
+    label: "About",
+    path: "/about",
+  },
+  {
+    number: "04",
+    label: "Resume",
+    path: "/resume",
+  },
 ];
-
 
 // ============================================================
 // NAVBAR
 // ============================================================
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isCommandOpen, setIsCommandOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
-    const { theme, toggleTheme } = useTheme();
+  // ============================================================
+  // MOBILE MENU
+  // ============================================================
 
+  const handleMenuToggle = () => {
+    setIsMenuOpen((previousState) => !previousState);
+  };
 
-    // ============================================================
-    // MOBILE MENU
-    // ============================================================
+  const handleNavigation = () => {
+    setIsMenuOpen(false);
+  };
 
-    const handleMenuToggle = () => {
-        setIsMenuOpen((previousState) => !previousState);
-    };
+  // ============================================================
+  // SEARCH
+  // ============================================================
 
+  const handleSearchOpen = () => {
+    setIsCommandOpen(true);
+    setIsMenuOpen(false);
+  };
 
-    const handleNavigation = () => {
-        setIsMenuOpen(false);
-    };
+  const handleCommandClose = () => {
+    setIsCommandOpen(false);
+  };
 
+  const handleCommandToggle = () => {
+    setIsCommandOpen((previousState) => !previousState);
+  };
 
-    // ============================================================
-    // SEARCH
-    // ============================================================
+  // ============================================================
+  // THEME
+  // ============================================================
 
-    const handleSearchOpen = () => {
-        setIsCommandOpen(true);
-        setIsMenuOpen(false);
-    };
+  const handleThemeToggle = () => {
+    toggleTheme();
+  };
 
-
-    const handleCommandClose = () => {
-        setIsCommandOpen(false);
-    };
-
-
-    const handleCommandToggle = () => {
-        setIsCommandOpen(
-            (previousState) => !previousState
-        );
-    };
-
-
-    // ============================================================
-    // THEME
-    // ============================================================
-
-    const handleThemeToggle = () => {
-        toggleTheme();
-    };
-
-
-    return (
-        <>
-            {/* =====================================================
+  return (
+    <>
+      {/* =====================================================
                 NAVBAR
             ====================================================== */}
 
-            <header
-                className="
+      <header
+        className="
                     sticky
                     top-0
                     z-50
@@ -117,10 +98,9 @@ const Navbar = () => {
                     dark:border-white/10
                     dark:bg-black/95
                 "
-            >
-
-                <nav
-                    className="
+      >
+        <nav
+          className="
                         mx-auto
                         flex
                         h-16
@@ -131,44 +111,42 @@ const Navbar = () => {
                         sm:px-8
                         lg:px-10
                     "
-                >
-
-                    {/* =================================================
+        >
+          {/* =================================================
                         LOGO
                     ================================================== */}
 
-                    <NavLink
-                        to="/"
-                        onClick={handleNavigation}
-                        className="
-                            font-mono
-                            text-sm
-                            font-medium
-                            tracking-tight
-                            text-zinc-800
-                            transition-colors
-                            hover:text-orange-500
-                            dark:text-zinc-200
-                            dark:hover:text-orange-400
-                        "
-                    >
-                        sanket.hajare
-                    </NavLink>
+          <NavLink
+            to="/"
+            onClick={handleNavigation}
+            className="
+        font-mono
+        text-sm
+        font-medium
+        tracking-tight
+        text-zinc-800
+        transition-colors
+        hover:text-orange-500
+        dark:text-zinc-200
+        dark:hover:text-orange-400
+    "
+          >
+            <span className="mr-1 text-orange-500">&lt;</span>
+            <span className="mx-1">sanket.hajare</span>
+            <span className="ml-1 text-orange-500">/&gt;</span>
+          </NavLink>
 
-
-                    {/* =================================================
+          {/* =================================================
                         DESKTOP NAVIGATION
                     ================================================== */}
 
-                    <div className="hidden items-center md:flex">
-
-                        {navigationItems.map((item) => (
-
-                            <NavLink
-                                key={item.path}
-                                to={item.path}
-                                onClick={handleNavigation}
-                                className={({ isActive }) => `
+          <div className="hidden items-center md:flex">
+            {navigationItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={handleNavigation}
+                className={({ isActive }) => `
                                     group
                                     relative
                                     flex
@@ -181,42 +159,36 @@ const Navbar = () => {
                                     font-medium
                                     tracking-wide
                                     transition-colors
-                                    ${isActive
+                                    ${
+                                      isActive
                                         ? "text-zinc-900 dark:text-zinc-100"
                                         : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-300"
                                     }
                                 `}
-                            >
+              >
+                {({ isActive }) => (
+                  <>
+                    {/* Number */}
 
-                                {({ isActive }) => (
+                    <span
+                      className={
+                        isActive
+                          ? "font-semibold text-orange-500"
+                          : "text-zinc-400 dark:text-zinc-700"
+                      }
+                    >
+                      {item.number}
+                    </span>
 
-                                    <>
-                                        {/* Number */}
+                    {/* Label */}
 
-                                        <span
-                                            className={
-                                                isActive
-                                                    ? "font-semibold text-orange-500"
-                                                    : "text-zinc-400 dark:text-zinc-700"
-                                            }
-                                        >
-                                            {item.number}
-                                        </span>
+                    <span>{item.label}</span>
 
+                    {/* Active underline */}
 
-                                        {/* Label */}
-
-                                        <span>
-                                            {item.label}
-                                        </span>
-
-
-                                        {/* Active underline */}
-
-                                        {isActive && (
-
-                                            <span
-                                                className="
+                    {isActive && (
+                      <span
+                        className="
                                                     absolute
                                                     bottom-0
                                                     left-4
@@ -224,37 +196,28 @@ const Navbar = () => {
                                                     h-px
                                                     bg-orange-500
                                                 "
-                                            />
+                      />
+                    )}
+                  </>
+                )}
+              </NavLink>
+            ))}
+          </div>
 
-                                        )}
-
-                                    </>
-
-                                )}
-
-                            </NavLink>
-
-                        ))}
-
-                    </div>
-
-
-                    {/* =================================================
+          {/* =================================================
                         DESKTOP ACTIONS
                     ================================================== */}
 
-                    <div className="hidden items-center gap-5 lg:flex">
-
-
-                        {/* =================================================
+          <div className="hidden items-center gap-5 lg:flex">
+            {/* =================================================
                             SEARCH
                         ================================================== */}
 
-                        <button
-                            type="button"
-                            onClick={handleSearchOpen}
-                            aria-label="Open search"
-                            className="
+            <button
+              type="button"
+              onClick={handleSearchOpen}
+              aria-label="Open search"
+              className="
                                 flex
                                 h-8
                                 w-40
@@ -278,21 +241,15 @@ const Navbar = () => {
                                 dark:hover:border-white/20
                                 dark:hover:text-zinc-300
                             "
-                        >
+            >
+              <span className="flex items-center gap-2">
+                <Search size={13} />
 
-                            <span className="flex items-center gap-2">
+                <span>Search</span>
+              </span>
 
-                                <Search size={13} />
-
-                                <span>
-                                    Search
-                                </span>
-
-                            </span>
-
-
-                            <kbd
-                                className="
+              <kbd
+                className="
                                     rounded
                                     border
                                     border-zinc-200
@@ -304,21 +261,19 @@ const Navbar = () => {
                                     dark:border-white/10
                                     dark:text-zinc-600
                                 "
-                            >
-                                Ctrl K
-                            </kbd>
+              >
+                Ctrl K
+              </kbd>
+            </button>
 
-                        </button>
-
-
-                        {/* =================================================
+            {/* =================================================
                             GET IN TOUCH
                         ================================================== */}
 
-                        <NavLink
-                            to="/contact"
-                            onClick={handleNavigation}
-                            className="
+            <NavLink
+              to="/contact"
+              onClick={handleNavigation}
+              className="
                                 group
                                 inline-flex
                                 items-center
@@ -349,44 +304,37 @@ const Navbar = () => {
                                 dark:hover:bg-orange-500/10
                                 dark:hover:text-orange-300
                             "
-                        >
+            >
+              <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                Get in touch
+              </span>
 
-                            <span className="transition-transform duration-200 group-hover:translate-x-0.5">
-                                Get in touch
-                            </span>
-
-                            <ArrowUpRight
-                                size={12}
-                                strokeWidth={1.8}
-                                className="
+              <ArrowUpRight
+                size={12}
+                strokeWidth={1.8}
+                className="
                                     transition-transform
                                     duration-200
                                     group-hover:-translate-y-0.5
                                     group-hover:translate-x-0.5
                                 "
-                            />
+              />
+            </NavLink>
 
-                        </NavLink>
-
-
-                        {/* =================================================
+            {/* =================================================
                             THEME TOGGLE
                         ================================================== */}
 
-                        <button
-                            type="button"
-                            onClick={handleThemeToggle}
-                            aria-label={
-                                theme === "dark"
-                                    ? "Switch to light mode"
-                                    : "Switch to dark mode"
-                            }
-                            title={
-                                theme === "dark"
-                                    ? "Light mode"
-                                    : "Dark mode"
-                            }
-                            className="
+            <button
+              type="button"
+              onClick={handleThemeToggle}
+              aria-label={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+              title={theme === "dark" ? "Light mode" : "Dark mode"}
+              className="
                                 flex
                                 h-8
                                 w-8
@@ -405,47 +353,31 @@ const Navbar = () => {
                                 dark:text-zinc-500
                                 dark:hover:text-orange-400
                             "
-                        >
+            >
+              {theme === "dark" ? (
+                <Sun size={14} strokeWidth={1.7} />
+              ) : (
+                <Moon size={14} strokeWidth={1.7} />
+              )}
+            </button>
+          </div>
 
-                            {theme === "dark" ? (
-
-                                <Sun
-                                    size={14}
-                                    strokeWidth={1.7}
-                                />
-
-                            ) : (
-
-                                <Moon
-                                    size={14}
-                                    strokeWidth={1.7}
-                                />
-
-                            )}
-
-                        </button>
-
-                    </div>
-
-
-                    {/* =================================================
+          {/* =================================================
                         MOBILE ACTIONS
                     ================================================== */}
 
-                    <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
+            {/* Theme */}
 
-
-                        {/* Theme */}
-
-                        <button
-                            type="button"
-                            onClick={handleThemeToggle}
-                            aria-label={
-                                theme === "dark"
-                                    ? "Switch to light mode"
-                                    : "Switch to dark mode"
-                            }
-                            className="
+            <button
+              type="button"
+              onClick={handleThemeToggle}
+              aria-label={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+              className="
                                 flex
                                 h-9
                                 w-9
@@ -464,29 +396,18 @@ const Navbar = () => {
                                 dark:text-zinc-400
                                 dark:hover:text-orange-400
                             "
-                        >
+            >
+              {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
 
-                            {theme === "dark" ? (
-                                <Sun size={17} />
-                            ) : (
-                                <Moon size={17} />
-                            )}
+            {/* Menu */}
 
-                        </button>
-
-
-                        {/* Menu */}
-
-                        <button
-                            type="button"
-                            onClick={handleMenuToggle}
-                            aria-label={
-                                isMenuOpen
-                                    ? "Close menu"
-                                    : "Open menu"
-                            }
-                            aria-expanded={isMenuOpen}
-                            className="
+            <button
+              type="button"
+              onClick={handleMenuToggle}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              className="
                                 flex
                                 h-9
                                 w-9
@@ -504,29 +425,19 @@ const Navbar = () => {
                                 dark:text-zinc-400
                                 dark:hover:text-white
                             "
-                        >
+            >
+              {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+        </nav>
 
-                            {isMenuOpen ? (
-                                <X size={18} />
-                            ) : (
-                                <Menu size={18} />
-                            )}
-
-                        </button>
-
-                    </div>
-
-                </nav>
-
-
-                {/* =====================================================
+        {/* =====================================================
                     MOBILE NAVIGATION
                 ====================================================== */}
 
-                {isMenuOpen && (
-
-                    <div
-                        className="
+        {isMenuOpen && (
+          <div
+            className="
                             border-t
                             border-zinc-200/70
                             bg-white/80
@@ -537,19 +448,15 @@ const Navbar = () => {
                             dark:bg-black/80
                             md:hidden
                         "
-                    >
-
-                        <div className="mx-auto max-w-6xl">
-
-                            <div className="flex flex-col">
-
-                                {navigationItems.map((item) => (
-
-                                    <NavLink
-                                        key={item.path}
-                                        to={item.path}
-                                        onClick={handleNavigation}
-                                        className={({ isActive }) => `
+          >
+            <div className="mx-auto max-w-6xl">
+              <div className="flex flex-col">
+                {navigationItems.map((item) => (
+                  <NavLink
+                    key={item.path}
+                    to={item.path}
+                    onClick={handleNavigation}
+                    className={({ isActive }) => `
                                             flex
                                             items-center
                                             gap-3
@@ -561,34 +468,29 @@ const Navbar = () => {
                                             font-medium
                                             transition-colors
                                             dark:border-white/5
-                                            ${isActive
+                                            ${
+                                              isActive
                                                 ? "text-orange-500"
                                                 : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-200"
                                             }
                                         `}
-                                    >
+                  >
+                    <span className="text-xs text-zinc-400 dark:text-zinc-700">
+                      {item.number}
+                    </span>
 
-                                        <span className="text-xs text-zinc-400 dark:text-zinc-700">
-                                            {item.number}
-                                        </span>
+                    <span>{item.label}</span>
+                  </NavLink>
+                ))}
 
-                                        <span>
-                                            {item.label}
-                                        </span>
-
-                                    </NavLink>
-
-                                ))}
-
-
-                                {/* =================================================
+                {/* =================================================
                                     MOBILE GET IN TOUCH
                                 ================================================== */}
 
-                                <NavLink
-                                    to="/contact"
-                                    onClick={handleNavigation}
-                                    className="
+                <NavLink
+                  to="/contact"
+                  onClick={handleNavigation}
+                  className="
                                         group
                                         mt-5
                                         inline-flex
@@ -621,34 +523,31 @@ const Navbar = () => {
                                         dark:hover:bg-orange-500/10
                                         dark:hover:text-orange-300
                                     "
-                                >
+                >
+                  <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                    Get in touch
+                  </span>
 
-                                    <span className="transition-transform duration-200 group-hover:translate-x-0.5">
-                                        Get in touch
-                                    </span>
-
-                                    <ArrowUpRight
-                                        size={14}
-                                        strokeWidth={1.8}
-                                        className="
+                  <ArrowUpRight
+                    size={14}
+                    strokeWidth={1.8}
+                    className="
                                             transition-transform
                                             duration-200
                                             group-hover:-translate-y-0.5
                                             group-hover:translate-x-0.5
                                         "
-                                    />
+                  />
+                </NavLink>
 
-                                </NavLink>
-
-
-                                {/* =================================================
+                {/* =================================================
                                     SEARCH
                                 ================================================== */}
 
-                                <button
-                                    type="button"
-                                    onClick={handleSearchOpen}
-                                    className="
+                <button
+                  type="button"
+                  onClick={handleSearchOpen}
+                  className="
                                         mt-6
                                         flex
                                         items-center
@@ -667,38 +566,27 @@ const Navbar = () => {
                                         dark:text-zinc-500
                                         dark:hover:text-orange-400
                                     "
-                                >
+                >
+                  <Search size={16} />
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
 
-                                    <Search size={16} />
-
-                                    Search
-
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                )}
-
-            </header>
-
-
-            {/* =====================================================
+      {/* =====================================================
                 COMMAND PALETTE
             ====================================================== */}
 
-            <CommandPalette
-                isOpen={isCommandOpen}
-                onClose={handleCommandClose}
-                onToggle={handleCommandToggle}
-            />
-
-        </>
-    );
+      <CommandPalette
+        isOpen={isCommandOpen}
+        onClose={handleCommandClose}
+        onToggle={handleCommandToggle}
+      />
+    </>
+  );
 };
-
 
 export default Navbar;
