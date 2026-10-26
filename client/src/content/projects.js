@@ -118,9 +118,9 @@ const projects = [
       "Bootstrap",
     ],
 
-    githubUrl: "YOUR_ACTUAL_GITHUB_REPOSITORY_URL",
+    githubUrl: "https://github.com/SanketHajare44/File_Packer_Unpacker",
 
-    liveUrl: "YOUR_ACTUAL_DEPLOYED_PROJECT_URL",
+    liveUrl: "https://file-packer-unpacker-frontend.vercel.app/",
 
     imageUrl: "/projects/FilePacker.png",
 
