@@ -9,7 +9,7 @@ const projects = [
     slug: "pullrequest",
     category: "MERN",
     year: 2026,
-    order: 1,
+    order: 4,
     featured: true,
     visible: true,
 
@@ -77,6 +77,101 @@ const projects = [
     },
   },
 
+  // =========================================================
+  // PASTE THIS OBJECT INSIDE THE projects ARRAY
+  // (order 4 is free, between CVFS = 3 and ParkEngine = 5)
+  // =========================================================
+
+  {
+    id: "freshleaf",
+    title: "FreshLeaf",
+    slug: "freshleaf",
+    category: "Full Stack",
+    year: 2026,
+    order: 1,
+    featured: true,
+    visible: true,
+
+    shortDescription:
+      "Full-stack grocery delivery platform featuring Stripe payments, live delivery tracking, automated background workflows, and inventory management.",
+
+    description: [
+      "Developed a **full-stack grocery delivery platform** with product browsing, cart management, checkout, order management, and delivery workflows.",
+
+      "Integrated **Stripe Checkout** to support secure online payments and streamlined order processing.",
+
+      "Implemented **live delivery partner tracking**, allowing customers to monitor their delivery partner's location while an order is in progress.",
+
+      "Used **Inngest** for event-driven background workflows, including automated low-stock monitoring and email notifications to administrators.",
+
+      "Designed and implemented a **PostgreSQL database** hosted on **Neon**, using **Prisma ORM** for relational data modelling and database operations.",
+
+      "Built scalable **REST APIs** using **Node.js** and **Express.js**, with a responsive **React** frontend for customers and administrators.",
+    ],
+
+    technologies: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Neon",
+      "Prisma ORM",
+      "Inngest",
+      "Stripe",
+      "REST API",
+    ],
+
+    githubUrl: "https://github.com/SanketHajare44/FreshLeaf",
+    liveUrl: "https://fresh-leaf.vercel.app/",
+    imageUrl: "/projects/FreshLeaf4.png",
+
+    caseStudy: {
+      intro:
+        "FreshLeaf is a **full-stack grocery delivery platform** designed to streamline online grocery shopping through integrated payments, inventory management, automated background workflows, and real-time delivery tracking.",
+
+      story: [
+        "-> Developed a complete **grocery shopping experience** where customers can browse products, manage their cart, add delivery addresses, and place orders.",
+
+        "-> Built the backend using **Node.js** and **Express.js**, exposing REST APIs to handle authentication, products, orders, payments, and delivery operations.",
+
+        "-> Designed a relational database using **PostgreSQL**, hosted on **Neon**, with **Prisma ORM** for structured data modelling and database interactions.",
+
+        "-> Integrated **Stripe Checkout** to process online payments and manage the payment flow for customer orders.",
+
+        "-> Implemented **Inngest** for event-driven background processing, including low-stock monitoring and automated email notifications to administrators when product inventory falls below the required threshold.",
+
+        "-> Developed **live delivery partner tracking**, enabling customers to follow their delivery partner's location while their order is being delivered.",
+
+        "-> Built a **React-based frontend** with customer-facing shopping features and administrative interfaces for managing products, orders, and delivery operations.",
+      ],
+
+      highlights: [
+        "Complete grocery browsing, cart, and checkout workflow",
+        "**Stripe Checkout** integration for online payments",
+        "**Live delivery partner tracking**",
+        "**Inngest** for event-driven background processing",
+        "Automated **low-stock email notifications** for administrators",
+        "**PostgreSQL** database hosted on Neon",
+        "**Prisma ORM** for relational database management",
+        "REST APIs built with **Node.js** and **Express.js**",
+        "React-based customer and admin interfaces",
+      ],
+
+      builtWith: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Neon",
+        "Prisma ORM",
+        "Inngest",
+        "Stripe",
+        "REST API",
+      ],
+    },
+  },
   // =========================================================
   // JAVA / BACKEND
   // =========================================================
