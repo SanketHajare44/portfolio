@@ -190,9 +190,9 @@ export default function AnimatedPortrait({
       // Increased particle spread for a more visible dissolve.
       const spread = Math.max(W, H) * 0.2;
 
-      const base = isDark ? [244, 241, 234] : [24, 24, 27];
+      const base = isDark ? [244, 241, 234] : [35, 35, 40];
 
-      const k = s * 0.75;
+      const k = isDark ? s * 0.75 : s * 0.25;
 
       ctx.fillStyle = `rgb(
         ${Math.round(lerp(base[0], 255, k))},
