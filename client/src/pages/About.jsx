@@ -38,7 +38,7 @@ const About = () => {
               {/* Profile Image */}
               <div className="relative w-full">
                 <AnimatedPortrait
-                  src="/portrait-black-transperent.png"
+                  src="/portrait-grey-transperent.png"
                   alt="Sanket Hajare"
                 />
               </div>
